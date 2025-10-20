@@ -5,6 +5,14 @@
 
 #include "../src/heat_flow_printer.hpp"
 
-TEST_CASE( "it works" ) {
-    REQUIRE( true == true );
+TEST_CASE("Pretty_print works")
+{
+    HeatFlow heatFlow(10.0, 0.1, 5);
+    heatFlow.setSource(0, 100.0);
+
+    HeatFlowPrinter printer;
+
+    std::string output = printer.pretty_print(heatFlow);
+
+    REQUIRE(output == "[100.000000][10.000000][10.000000][10.000000][10.000000]");
 }
